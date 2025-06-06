@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Summary{% endblock %}
+{% block content %}
+<div class="bg-white rounded-xl p-6 shadow space-y-6" style="min-height: calc(100vh - 192px);">
+  <div class="flex justify-between items-center">
+    <h2 class="text-xl font-semibold">PO Distribution & QR Codes</h2>
+    <button onclick="window.print()" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 print:hidden">🖨 Print</button>
+  </div>
+  <div id="summaryGrid" class="grid grid-cols-1 md:grid-cols-3 gap-6 justify-items-center"></div>
+</div>
+{% endblock %}
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/summary.js') }}"></script>
+{% endblock %}

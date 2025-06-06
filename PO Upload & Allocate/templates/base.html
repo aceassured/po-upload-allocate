@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>{% block title %}PO App{% endblock %}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="bg-gray-50 font-sans text-gray-800">
+  <header class="bg-white shadow">
+    <div class="max-w-6xl mx-auto px-8 py-6 flex items-center space-x-12">
+      <div class="text-2xl font-bold text-blue-800">aceomation</div>
+      <nav class="flex space-x-8 text-sm font-medium">
+        <a href="/" class="text-gray-700 hover:text-blue-800">Dashboard</a>
+        <a href="/" class="text-blue-800 border-b-2 border-blue-800 pb-1">PO Upload & Allocation</a>
+        <a href="#" class="text-gray-600 hover:text-blue-800">Inventory Management</a>
+        <a href="#" class="text-gray-600 hover:text-blue-800">Allocation Reports</a>
+      </nav>
+    </div>
+  </header>
+  <main class="max-w-6xl mx-auto px-8 py-10 space-y-10">
+    {% block content %}{% endblock %}
+  </main>
+  {% block scripts %}{% endblock %}
+</body>
+</html>

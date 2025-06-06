@@ -1,0 +1,34 @@
+/* Input fields */
+table input[type="number"] {
+  background-color: #EFF6FF;
+  border: 1px solid #93C5FD;
+  border-radius: 0.75rem;
+  padding: 0.5rem;
+  width: 6rem;
+  font-size: 0.875rem;
+  text-align: center;
+}
+
+/* DropZone hover */
+#dropZone:hover {
+  border-color: #2563EB;
+  background-color: #EEF6FF;
+}
+
+/* Remove internal table borders */
+#allocateBody tr,
+#distBody tr {
+  border-bottom: none;
+}
+
+/* Print styles */
+@media print {
+  header,
+  .print\:hidden {
+    display: none !important;
+  }
+  main {
+    padding: 0;
+    max-width: 100%;
+  }
+}

@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block title %}Upload & Allocate{% endblock %}
+{% block content %}
+<div class="flex flex-col lg:flex-row gap-8">
+  <!-- Upload/Preview Panel -->
+  <div class="lg:w-2/5 bg-white rounded-xl border p-6 shadow flex flex-col" style="min-height: calc(100vh - 192px);">
+    <div id="dropZone" class="flex-1 flex flex-col items-center justify-center border-2 border-dashed border-gray-300 rounded-lg transition-colors">
+      <svg class="h-14 w-14 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M4 16l4-4-4-4m16 8l-4-4 4-4M12 20V4"/>
+      </svg>
+      <p class="mt-4 text-base text-gray-600">Drag & drop a file here or browse</p>
+      <p class="text-sm text-gray-400">PDF only</p>
+      <button id="browseBtn" class="mt-4 bg-blue-600 text-white px-5 py-2 rounded-lg hover:bg-blue-700 text-sm">
+        Browse Files
+      </button>
+      <input type="file" id="fileInput" accept=".pdf" class="hidden" />
+    </div>
+    <div id="pdfPreviewContainer" class="mt-6 flex-1 hidden">
+      <iframe id="pdfPreview" class="w-full h-full rounded-lg border border-gray-200" src="" frameborder="0"></iframe>
+    </div>
+  </div>
+
+  <!-- Allocation Table Panel -->
+  <div class="lg:w-3/5 bg-white rounded-xl p-6 shadow flex flex-col" style="min-height: calc(100vh - 192px);">
+    <h2 class="text-xl font-semibold mb-6">Scan & Allocate Purchase Order Items</h2>
+    <div class="flex-1 overflow-y-auto">
+      <table class="w-full text-sm text-left">
+        <thead class="text-blue-600 border-b">
+          <tr>
+            <th class="pb-3">Item Name</th>
+            <th>Item Number</th>
+            <th>Requested</th>
+            <th>Allocated</th>
+          </tr>
+        </thead>
+        <tbody id="allocateBody" class="text-gray-700 space-y-3"></tbody>
+      </table>
+    </div>
+    <div class="mt-6 flex justify-end">
+      <button id="nextBtn" class="hidden bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700">Next</button>
+    </div>
+  </div>
+</div>
+{% endblock %}
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/upload_allocate.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}Distribute Items{% endblock %}
+{% block content %}
+<div class="bg-white rounded-xl p-6 shadow flex flex-col" style="min-height: calc(100vh - 192px);">
+  <h2 class="text-xl font-semibold mb-4">Allocate Purchase Order Items</h2>
+  <div class="flex-1 overflow-y-auto">
+    <table class="w-full text-sm text-gray-700">
+      <thead class="text-blue-600 border-b">
+        <tr>
+          <th class="pb-3 text-left">Item Name & No</th>
+          <th class="pb-3">Requested</th>
+          <th class="pb-3">Allocated</th>
+          <th class="pb-3">Box 1</th>
+          <th class="pb-3">Box 2</th>
+          <th class="pb-3">Box 3</th>
+        </tr>
+      </thead>
+      <tbody id="distBody" class="space-y-3"></tbody>
+    </table>
+  </div>
+  <div class="mt-6 flex justify-end">
+    <button id="nextDist" class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700">Next</button>
+  </div>
+</div>
+{% endblock %}
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/distribution.js') }}"></script>
+{% endblock %}

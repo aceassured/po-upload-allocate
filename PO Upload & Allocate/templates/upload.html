@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Upload PDF{% endblock %}
+{% block content %}
+<div class="max-w-md mx-auto bg-white p-8 rounded-lg shadow-lg">
+  <h2 class="text-xl font-bold mb-4">Upload Purchase Order</h2>
+  <input type="file" id="fileInput" accept=".pdf" class="block mb-4"/>
+  <button id="uploadBtn"
+          class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+    Upload
+  </button>
+</div>
+{% endblock %}
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/upload.js') }}"></script>
+{% endblock %}
